@@ -55,15 +55,20 @@ namespace ReverbEngine
                 }
                 saveableSounds.Add(s);
             }
-            return Newtonsoft.Json.JsonConvert.SerializeObject(saveableSounds);
+            LibraryFile f = new LibraryFile();
+            f.sounds = saveableSounds;
+            f.outputDevice = MainWindow.outputDevice.DeviceNumber;
+            f.version = Configs.Version;
+            return Newtonsoft.Json.JsonConvert.SerializeObject(f);
         }
 
         private static void SetCurrentStateJson(string json)
         {
             try
             {
-                List<SaveableSoundRef> loadableSounds = Newtonsoft.Json.JsonConvert.DeserializeObject<List<SaveableSoundRef>>(json);
-                foreach (var s in loadableSounds)
+                LibraryFile import = Newtonsoft.Json.JsonConvert.DeserializeObject<LibraryFile>(json);
+                MainWindow.outputDevice.DeviceNumber = import.outputDevice;
+                foreach (var s in import.sounds)
                 {
                     if (File.Exists(s.FilePath))
                     {
@@ -85,5 +90,11 @@ namespace ReverbEngine
         public byte colorG;
         public byte colorB;
         public bool IsLEDEnabled;
+    }
+    class LibraryFile
+    {
+        public List<SaveableSoundRef> sounds;
+        public int outputDevice;
+        public string version;
     }
 }

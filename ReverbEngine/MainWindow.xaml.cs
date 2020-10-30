@@ -136,6 +136,7 @@ namespace ReverbEngine
             var ad = new AudioFileReader(s);
             var cd = new ControlDial();
             cd.audioFile = ad;
+            cd.UpdateTooltip();
             cd.Width = 690;
             cd.Height = 755;
             cd.LayoutTransform = new ScaleTransform(0.15, 0.15);

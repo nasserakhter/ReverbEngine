@@ -64,6 +64,11 @@ namespace ReverbEngine.Controls
             BlurOut = (Storyboard)FindResource("BlurOut");
         }
 
+        public void UpdateTooltip()
+        {
+            grid.ToolTip = System.IO.Path.GetFileNameWithoutExtension(audioFile.FileName);
+        }
+
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && e.RightButton == MouseButtonState.Pressed)
