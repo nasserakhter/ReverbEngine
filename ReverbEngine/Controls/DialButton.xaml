@@ -1,0 +1,500 @@
+﻿<UserControl x:Class="ReverbEngine.Controls.DialButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReverbEngine.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="755" d:DesignWidth="690">
+    <UserControl.Resources>
+        <Storyboard x:Key="PressIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.45"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.ShadowDepth)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="68"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="22">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="ellipse">
+                <EasingColorKeyFrame KeyTime="0" Value="#9EFFFFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#4CFFFFFF">
+                    <EasingColorKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingColorKeyFrame.EasingFunction>
+                </EasingColorKeyFrame>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="ellipse">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF5B5B5B"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#FF4B4B4B">
+                    <EasingColorKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingColorKeyFrame.EasingFunction>
+                </EasingColorKeyFrame>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="LEDContainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="LEDContainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Symbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="Symbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="PressOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.45">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.ShadowDepth)" Storyboard.TargetName="ellipse">
+                <SplineDoubleKeyFrame KeyTime="0" Value="22"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="68">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="ellipse">
+                <SplineColorKeyFrame KeyTime="0" Value="#4CFFFFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#9EFFFFFF">
+                    <EasingColorKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingColorKeyFrame.EasingFunction>
+                </EasingColorKeyFrame>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="ellipse">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF4B4B4B"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#FF5B5B5B">
+                    <EasingColorKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingColorKeyFrame.EasingFunction>
+                </EasingColorKeyFrame>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="LEDContainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="LEDContainer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Symbol">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="Symbol">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="PlayToPause">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PlaySymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PauseSymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PauseSymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PlaySymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="PauseToPlay">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PauseSymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PlaySymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PlaySymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PauseSymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PauseSymbol">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid>
+        <Canvas
+  Canvas.Left="202.5"
+  Canvas.Top="202.58"
+  ClipToBounds="True" MouseDown="Canvas_MouseDown" MouseUp="Canvas_MouseUp">
+            <Ellipse
+                Canvas.Left="0.01"
+                Canvas.Top="0.008"
+                Width="674.99"
+                Height="675.244"
+                StrokeThickness="5" Fill="#FF2A2A2A">
+                <Ellipse.Stroke>
+                    <LinearGradientBrush
+                        StartPoint="0.5, 0"
+                        EndPoint="0.5, 1">
+                        <GradientStop
+                            Color="#24FFFFFF"
+                            Offset="0" />
+                        <GradientStop
+                            Color="#00FFFFFF"
+                            Offset="0.53763443" />
+                        <GradientStop
+                            Color="#73FFFFFF"
+                            Offset="1" />
+                    </LinearGradientBrush>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Ellipse x:Name="ellipse"
+    Canvas.Left="84.38"
+    Canvas.Top="84.41"
+    Width="506.25"
+    Height="506.44"
+    StrokeThickness="7" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Stroke>
+                    <LinearGradientBrush
+        StartPoint="0.5, 0"
+        EndPoint="0.5, 1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop
+            Color="#9EFFFFFF"
+            Offset="0" />
+                            <GradientStop
+            Color="#00FFFFFF"
+            Offset="0.53763443" />
+                            <GradientStop
+            Color="#8F000000"
+            Offset="1" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Ellipse.Stroke>
+                <Ellipse.Fill>
+                    <LinearGradientBrush
+        StartPoint="0.5, 0"
+        EndPoint="0.5, 1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop
+            Color="#5B5B5B"
+            Offset="0" />
+                            <GradientStop
+            Color="#232323"
+            Offset="1" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.Effect>
+                    <DropShadowEffect
+        Color="#73000000"
+        Opacity="0.45"
+        BlurRadius="34"
+        Direction="-90"
+        ShadowDepth="68" />
+                </Ellipse.Effect>
+            </Ellipse>
+            <Grid x:Name="LEDContainer" Height="405.152" Canvas.Left="135" Canvas.Top="135" Width="405" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Path x:Name="__LED__BLOOM"
+                    StrokeThickness="7" Data="M202.5,37.313328 C111.23495,37.313332 37.25,111.32664 37.25,202.62666 37.25,293.9267 111.23495,367.94 202.5,367.94 293.76504,367.94 367.75,293.9267 367.75,202.62666 367.75,111.32664 293.76504,37.313332 202.5,37.313328 z M202.5,3.5 C312.40466,3.5 401.5,92.629448 401.5,202.5762 401.5,312.52295 312.40466,401.6524 202.5,401.6524 92.595337,401.6524 3.4999998,312.52295 3.5,202.5762 3.4999998,92.629448 92.595337,3.5 202.5,3.5 z" RenderTransformOrigin="0.499999999705656,0.499999994094622" Stretch="Fill" Fill="{Binding Fill, ElementName=LED}" Opacity="0.3">
+                    <Path.Effect>
+                        <BlurEffect Radius="70"/>
+                    </Path.Effect>
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+                <Path x:Name="LED"
+                    StrokeThickness="7" Data="M202.5,37.313328 C111.23495,37.313332 37.25,111.32664 37.25,202.62666 37.25,293.9267 111.23495,367.94 202.5,367.94 293.76504,367.94 367.75,293.9267 367.75,202.62666 367.75,111.32664 293.76504,37.313332 202.5,37.313328 z M202.5,3.5 C312.40466,3.5 401.5,92.629448 401.5,202.5762 401.5,312.52295 312.40466,401.6524 202.5,401.6524 92.595337,401.6524 3.4999998,312.52295 3.5,202.5762 3.4999998,92.629448 92.595337,3.5 202.5,3.5 z" RenderTransformOrigin="0.499999999705656,0.499999994094622" Stretch="Fill" Fill="#FF00D49B">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                    <Path.Stroke>
+                        <LinearGradientBrush
+                            StartPoint="0.5, 0"
+                            EndPoint="0.5, 1">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="180" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop
+                                Color="#9EFFFFFF"
+                                Offset="0" />
+                            <GradientStop
+                                Color="#00FFFFFF"
+                                Offset="0.53763443" />
+                            <GradientStop
+                                Color="#8F000000"
+                                Offset="1" />
+                        </LinearGradientBrush>
+                    </Path.Stroke>
+                </Path>
+            </Grid>
+            <Grid x:Name="Symbol" Canvas.Left="174" Canvas.Top="173" Width="330" Height="330" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid x:Name="PlaySymbol" Margin="0" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Path
+  Data="M157.589 14.4114L288.99 234.882Q289.158 235.165 289.308 235.458Q289.458 235.752 289.588 236.055Q289.718 236.357 289.828 236.668Q289.937 236.979 290.027 237.296Q290.116 237.613 290.184 237.936Q290.252 238.258 290.298 238.584Q290.345 238.91 290.37 239.239Q290.395 239.567 290.399 239.897Q290.402 240.226 290.384 240.555Q290.366 240.884 290.326 241.212Q290.286 241.539 290.225 241.862Q290.163 242.186 290.081 242.505Q289.998 242.824 289.895 243.137Q289.792 243.45 289.668 243.755Q289.544 244.061 289.401 244.357Q289.257 244.654 289.094 244.94Q288.931 245.227 288.75 245.502Q288.569 245.777 288.37 246.04Q288.171 246.302 287.955 246.551Q287.739 246.8 287.507 247.034Q287.276 247.269 287.029 247.487Q286.782 247.706 286.522 247.907Q286.261 248.109 285.988 248.293Q285.715 248.477 285.43 248.643Q285.145 248.809 284.85 248.955Q284.555 249.102 284.251 249.229Q283.947 249.356 283.635 249.462Q283.323 249.569 283.005 249.655Q282.687 249.741 282.364 249.805Q282.041 249.87 281.714 249.913Q281.387 249.957 281.059 249.978Q280.73 250 280.4 250L17.5996 250Q17.2701 250 16.9413 249.978Q16.6125 249.957 16.2859 249.913Q15.9592 249.87 15.6361 249.805Q15.3131 249.741 14.9949 249.655Q14.6768 249.569 14.365 249.462Q14.0532 249.356 13.7491 249.229Q13.445 249.102 13.15 248.955Q12.8549 248.809 12.5701 248.643Q12.2853 248.477 12.0121 248.293Q11.7388 248.109 11.4783 247.907Q11.2177 247.706 10.971 247.487Q10.7243 247.269 10.4926 247.034Q10.2608 246.8 10.0449 246.551Q9.82907 246.302 9.63007 246.04Q9.43107 245.777 9.2498 245.502Q9.06852 245.227 8.90575 244.94Q8.74298 244.654 8.59943 244.357Q8.45588 244.061 8.33216 243.755Q8.20844 243.45 8.1051 243.137Q8.00176 242.824 7.91924 242.505Q7.83672 242.186 7.77539 241.862Q7.71405 241.539 7.67416 241.212Q7.63427 240.884 7.616 240.555Q7.59773 240.226 7.60116 239.897Q7.60458 239.567 7.6297 239.239Q7.65481 238.91 7.7015 238.584Q7.74819 238.258 7.81625 237.936Q7.88431 237.613 7.97345 237.296Q8.06259 236.979 8.17242 236.668Q8.28225 236.357 8.41229 236.055Q8.54234 235.752 8.69203 235.458Q8.84173 235.165 9.01042 234.882L140.411 14.4114Q140.576 14.1339 140.759 13.8677Q140.942 13.6015 141.142 13.3477Q141.341 13.0939 141.557 12.8534Q141.773 12.613 142.004 12.387Q142.234 12.161 142.479 11.9504Q142.724 11.7397 142.982 11.5453Q143.24 11.3509 143.51 11.1736Q143.78 10.9962 144.061 10.8367Q144.342 10.6771 144.632 10.536Q144.923 10.3949 145.222 10.2729Q145.521 10.1508 145.827 10.0484Q146.133 9.94586 146.446 9.86334Q146.758 9.78083 147.075 9.71864Q147.392 9.65645 147.712 9.61485Q148.032 9.57324 148.355 9.5524Q148.677 9.53155 149 9.53155Q149.323 9.53155 149.645 9.5524Q149.968 9.57324 150.288 9.61485Q150.608 9.65645 150.925 9.71864Q151.242 9.78083 151.554 9.86334Q151.867 9.94586 152.173 10.0484Q152.479 10.1508 152.778 10.2729Q153.077 10.3949 153.368 10.536Q153.658 10.6771 153.939 10.8367Q154.22 10.9962 154.49 11.1736Q154.76 11.3509 155.018 11.5453Q155.276 11.7397 155.521 11.9504Q155.766 12.161 155.996 12.387Q156.227 12.613 156.443 12.8534Q156.659 13.0939 156.858 13.3477Q157.058 13.6015 157.241 13.8677Q157.424 14.1339 157.589 14.4114Z"
+  Stretch="Fill"
+  Canvas.Left="506"
+  Canvas.Top="154"
+  Width="244.448"
+  Height="205.074"
+  Fill="#FF252525" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="66.552,62.463,19,62.463" StrokeThickness="5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform
+        Angle="90" />
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                        <Path.Stroke>
+                            <LinearGradientBrush
+                                StartPoint="0.5, 0"
+                                EndPoint="0.5, 1">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="-115" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop
+                                    Color="#24FFFFFF"
+                                    Offset="0" />
+                                <GradientStop
+                                    Color="#00FFFFFF"
+                                    Offset="0.427" />
+                                <GradientStop
+                                    Color="#73FFFFFF"
+                                    Offset="0.72" />
+                            </LinearGradientBrush>
+                        </Path.Stroke>
+                    </Path>
+                </Grid>
+                <Grid x:Name="PauseSymbol" Margin="0" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Fill="#FF252525" StrokeThickness="5" Grid.Row="1" Grid.Column="1" RadiusX="10" RadiusY="10">
+                        <Rectangle.Stroke>
+                            <LinearGradientBrush
+                                StartPoint="0.5, 0"
+                                EndPoint="0.5, 1">
+                                <GradientStop
+                                    Color="#24FFFFFF"
+                                    Offset="0" />
+                                <GradientStop
+                                    Color="#00FFFFFF"
+                                    Offset="0.53763443" />
+                                <GradientStop
+                                    Color="#73FFFFFF"
+                                    Offset="1" />
+                            </LinearGradientBrush>
+                        </Rectangle.Stroke>
+                    </Rectangle>
+                    <Rectangle Fill="#FF252525" StrokeThickness="5" Grid.Row="1" Grid.Column="3" RadiusX="10" RadiusY="10">
+                        <Rectangle.Stroke>
+                            <LinearGradientBrush
+                                StartPoint="0.5, 0"
+                                EndPoint="0.5, 1">
+                                <GradientStop
+                                    Color="#24FFFFFF"
+                                    Offset="0" />
+                                <GradientStop
+                                    Color="#00FFFFFF"
+                                    Offset="0.53763443" />
+                                <GradientStop
+                                    Color="#73FFFFFF"
+                                    Offset="1" />
+                            </LinearGradientBrush>
+                        </Rectangle.Stroke>
+                    </Rectangle>
+                </Grid>
+            </Grid>
+        </Canvas>
+    </Grid>
+</UserControl>

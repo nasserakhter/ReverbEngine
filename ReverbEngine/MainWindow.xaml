@@ -1,0 +1,44 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReverbEngine"
+        xmlns:Controls="clr-namespace:ReverbEngine.Controls" x:Class="ReverbEngine.MainWindow"
+        mc:Ignorable="d"
+        Title="MicroART Reverb Engine" Height="800" Width="1200" Background="#FF2A2A2A" AllowDrop="True" Drop="Window_Drop">
+    <Grid FocusVisualStyle="{x:Null}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="175"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Row="1" FocusVisualStyle="{x:Null}">
+            <WrapPanel FocusVisualStyle="{x:Null}" x:Name="SoundsList" Margin="50,0" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+        </ScrollViewer>
+        <Grid Margin="0" FocusVisualStyle="{x:Null}">
+            <StackPanel Margin="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Controls:DialButton HorizontalAlignment="Center" Height="755" VerticalAlignment="Center" Width="690" MouseUp="DialButton_MouseUp">
+                    <Controls:DialButton.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Controls:DialButton.LayoutTransform>
+                </Controls:DialButton>
+                <Controls:MiniHud x:Name="HUD" HorizontalAlignment="Center" Margin="20,0" Width="350" Height="145"/>
+                <Controls:DialButton x:Name="PlayPauseDial" HorizontalAlignment="Center" Height="755" Margin="0" VerticalAlignment="Center" Width="690">
+                    <Controls:DialButton.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Controls:DialButton.LayoutTransform>
+                </Controls:DialButton>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

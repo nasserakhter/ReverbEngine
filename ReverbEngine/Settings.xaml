@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReverbEngine"
+        xmlns:Controls="clr-namespace:ReverbEngine.Controls" x:Class="ReverbEngine.Settings"
+        mc:Ignorable="d"
+        Title="Settings" Height="450" Width="800" Background="#FF2A2A2A" ResizeMode="NoResize">
+    <Grid Margin="10">
+        <StackPanel Margin="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Margin="0,0,5,0" TextWrapping="Wrap" Text="Audio Output Devices" VerticalAlignment="Center" Foreground="White"/>
+                <ComboBox x:Name="AudioDevices" Margin="0" SelectionChanged="AudioDevices_SelectionChanged"/>
+            </StackPanel>
+            <Grid HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Import Library Data" Margin="0,0,10,0" Background="#FF555555" BorderBrush="Black" Padding="4,5" Foreground="White" Click="Button_Click"/>
+                <Button Content="Export Library Data" Margin="0" VerticalAlignment="Top" Grid.Column="1" Background="#FF555555" BorderBrush="Black" Padding="4,5" Foreground="White" Click="Button_Click_1"/>
+            </Grid>
+        </StackPanel>
+        <DockPanel LastChildFill="False" Margin="0">
+            <TextBlock Margin="0" TextWrapping="Wrap" Text="Reverb Engine and all of its affiliated services and products are protected under copyright law" VerticalAlignment="Top" Foreground="#FF707070" DockPanel.Dock="Bottom" HorizontalAlignment="Left" Width="235"/>
+            <TextBlock Margin="0" TextWrapping="Wrap" Text="MicroART Technologies Inc." VerticalAlignment="Top" Foreground="#FF707070" FontWeight="Bold" DockPanel.Dock="Bottom" HorizontalAlignment="Left" FontSize="18"/>
+            <TextBlock Margin="0" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Left" Text="REVERB ENGINE" Foreground="Black" FontWeight="Black" FontSize="72" Opacity="0.1"/>
+        </DockPanel>
+    </Grid>
+</Window>

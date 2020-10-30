@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="ReverbEngine.Controls.MiniHud"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReverbEngine.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="350">
+    <Grid>
+        <Grid>
+            <Path
+                Data="M225.8 25.2577C223.141 15.3825 215.355 7.59629 205.48 4.93759C187.438 0 115.274 0 115.274 0C115.274 0 43.109 0 25.0678 4.74768C15.3825 7.40638 7.40638 15.3825 4.74768 25.2577C0 43.2989 0 80.7106 0 80.7106C0 80.7106 0 118.312 4.74768 136.163C7.40638 146.039 15.1926 153.825 25.0678 156.484C43.2989 161.421 115.274 161.421 115.274 161.421C115.274 161.421 187.438 161.421 205.48 156.673C215.355 154.015 223.141 146.229 225.8 136.353C230.547 118.312 230.547 80.9005 230.547 80.9005C230.547 80.9005 230.737 43.2989 225.8 25.2577L225.8 25.2577Z"
+                Stretch="Fill" Margin="0" Fill="Black" StrokeThickness="2" />
+            <Path x:Name="_Shape"
+                Data="M225.8 25.2577C223.141 15.3825 215.355 7.59629 205.48 4.93759C187.438 0 115.274 0 115.274 0C115.274 0 43.109 0 25.0678 4.74768C15.3825 7.40638 7.40638 15.3825 4.74768 25.2577C0 43.2989 0 80.7106 0 80.7106C0 80.7106 0 118.312 4.74768 136.163C7.40638 146.039 15.1926 153.825 25.0678 156.484C43.2989 161.421 115.274 161.421 115.274 161.421C115.274 161.421 187.438 161.421 205.48 156.673C215.355 154.015 223.141 146.229 225.8 136.353C230.547 118.312 230.547 80.9005 230.547 80.9005C230.547 80.9005 230.737 43.2989 225.8 25.2577L225.8 25.2577Z"
+                Stretch="Fill" Margin="0" Fill="#3FB5DAFF" >
+                <Path.Effect>
+                    <BlurEffect Radius="50.2"/>
+                </Path.Effect>
+            </Path>
+        </Grid>
+        <DockPanel Margin="25">
+            <DockPanel Margin="0" DockPanel.Dock="Top">
+                <Grid Width="16.32" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" MouseUp="UserControl_MouseUp" Cursor="Hand" Panel.ZIndex="4">
+                    <TextBlock x:Name="SettingsButton" Text="&#xE115;" Foreground="#FFCCF6FF" RenderTransformOrigin="0.5,0.5" TextTrimming="CharacterEllipsis" FontFamily="Segoe MDL2 Assets" FontSize="16">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                <SkewTransform AngleY="0" AngleX="0"/>
+                                <RotateTransform Angle="0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </Grid>
+                <TextBlock x:Name="TrackName" Text="Select A File To Play" VerticalAlignment="Top" Foreground="#FFCCF6FF" RenderTransformOrigin="0.5,0.5" TextTrimming="CharacterEllipsis" FontWeight="Bold" HorizontalAlignment="Left" Margin="0" Panel.ZIndex="1">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="1"/>
+                            <SkewTransform AngleY="0" AngleX="0"/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </DockPanel>
+            <TextBlock x:Name="TrackStatus" Text="Status: Idle" VerticalAlignment="Top" Foreground="#FFCCF6FF" RenderTransformOrigin="0.5,0.5" TextTrimming="CharacterEllipsis" DockPanel.Dock="Top">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Grid Margin="0" Height="15" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+                <ProgressBar x:Name="TrackProgressView" BorderBrush="#FFCCF6FF" Background="{x:Null}" Foreground="#FFCCF6FF" Value="{Binding Value, ElementName=TrackProgress}" Maximum="{Binding Maximum, ElementName=TrackProgress}"/>
+                <Slider x:Name="TrackProgress" IsMoveToPointEnabled="True" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Opacity="0.001" ValueChanged="TrackPositionSlider_ValueChanged" Maximum="100" Value="100"/>
+            </Grid>
+            <DockPanel LastChildFill="False" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+                <TextBlock x:Name="TrackCurrentPos" HorizontalAlignment="Left" TextWrapping="Wrap" Text="7:49" VerticalAlignment="Top" Foreground="#FFCCF6FF"/>
+                <TextBlock x:Name="TrackTotalPos" HorizontalAlignment="Right" TextWrapping="Wrap" Text="7:49" VerticalAlignment="Top" DockPanel.Dock="Right" Foreground="#FFCCF6FF"/>
+            </DockPanel>
+        </DockPanel>
+        <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="MINI HUD" VerticalAlignment="Center" Foreground="#FFCCF6FF" FontWeight="Black" FontSize="18" Opacity="0.2"/>
+        <Grid Opacity="0.599" IsHitTestVisible="False">
+            <Image Margin="0" Source="/ReverbEngine;component/PC Screen Closeup Overlay.png" Stretch="Fill" IsHitTestVisible="False">
+                <Image.OpacityMask>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Path
+                                    Data="M225.8 25.2577C223.141 15.3825 215.355 7.59629 205.48 4.93759C187.438 0 115.274 0 115.274 0C115.274 0 43.109 0 25.0678 4.74768C15.3825 7.40638 7.40638 15.3825 4.74768 25.2577C0 43.2989 0 80.7106 0 80.7106C0 80.7106 0 118.312 4.74768 136.163C7.40638 146.039 15.1926 153.825 25.0678 156.484C43.2989 161.421 115.274 161.421 115.274 161.421C115.274 161.421 187.438 161.421 205.48 156.673C215.355 154.015 223.141 146.229 225.8 136.353C230.547 118.312 230.547 80.9005 230.547 80.9005C230.547 80.9005 230.737 43.2989 225.8 25.2577L225.8 25.2577Z"
+                                    Stretch="Fill" Margin="0" Fill="Black" />
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Image.OpacityMask>
+            </Image>
+            <Image Margin="0" Source="/ReverbEngine;component/scan lines (GOOD).png" Stretch="Fill" IsHitTestVisible="False">
+                <Image.OpacityMask>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Path
+                                    Data="M225.8 25.2577C223.141 15.3825 215.355 7.59629 205.48 4.93759C187.438 0 115.274 0 115.274 0C115.274 0 43.109 0 25.0678 4.74768C15.3825 7.40638 7.40638 15.3825 4.74768 25.2577C0 43.2989 0 80.7106 0 80.7106C0 80.7106 0 118.312 4.74768 136.163C7.40638 146.039 15.1926 153.825 25.0678 156.484C43.2989 161.421 115.274 161.421 115.274 161.421C115.274 161.421 187.438 161.421 205.48 156.673C215.355 154.015 223.141 146.229 225.8 136.353C230.547 118.312 230.547 80.9005 230.547 80.9005C230.547 80.9005 230.737 43.2989 225.8 25.2577L225.8 25.2577Z"
+                                    Stretch="Fill" Margin="0" Fill="Black" />
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Image.OpacityMask>
+            </Image>
+            <Path
+                Data="M225.8 25.2577C223.141 15.3825 215.355 7.59629 205.48 4.93759C187.438 0 115.274 0 115.274 0C115.274 0 43.109 0 25.0678 4.74768C15.3825 7.40638 7.40638 15.3825 4.74768 25.2577C0 43.2989 0 80.7106 0 80.7106C0 80.7106 0 118.312 4.74768 136.163C7.40638 146.039 15.1926 153.825 25.0678 156.484C43.2989 161.421 115.274 161.421 115.274 161.421C115.274 161.421 187.438 161.421 205.48 156.673C215.355 154.015 223.141 146.229 225.8 136.353C230.547 118.312 230.547 80.9005 230.547 80.9005C230.547 80.9005 230.737 43.2989 225.8 25.2577L225.8 25.2577Z"
+                Stretch="Fill" Margin="0" StrokeThickness="3" IsHitTestVisible="False" >
+                <Path.Stroke>
+                    <LinearGradientBrush
+        StartPoint="0.5, 0"
+        EndPoint="0.5, 1">
+                        <GradientStop
+            Color="#9EFFFFFF"
+            Offset="0" />
+                        <GradientStop
+            Color="#00FFFFFF"
+            Offset="0.53763443" />
+                        <GradientStop
+            Color="#8F000000"
+            Offset="1" />
+                    </LinearGradientBrush>
+                </Path.Stroke>
+            </Path>
+        </Grid>
+    </Grid>
+</UserControl>
