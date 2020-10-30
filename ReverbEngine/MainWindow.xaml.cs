@@ -42,7 +42,7 @@ namespace ReverbEngine
         public MainWindow()
         {
             InitializeComponent();
-            Title += " - v" + Configs.Version;
+            Title += $" - v{Configs.Version}";
             outputDevice = new WaveOutEvent();
             MiniHud = HUD;
             SoundsListEx = SoundsList;
