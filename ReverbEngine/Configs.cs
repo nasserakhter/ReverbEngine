@@ -8,6 +8,6 @@ namespace ReverbEngine
 {
     public static class Configs
     {
-        public static string Version = "1.2.0";
+        public static string Version = "1.2.1";
     }
 }
