@@ -30,7 +30,7 @@ namespace ReverbEngine
         public static AudioFileReader currentlyPlayingAudioFile;
         public static bool IsPlaying;
         public static DispatcherTimer timerVideoTime;
-        public static int AudioDevice;
+        public static int AudioDevice = -1;
 
         public static List<ControlDial> Files = new List<ControlDial>();
         public static MiniHud MiniHud;
@@ -38,10 +38,12 @@ namespace ReverbEngine
         public static bool StopSource_Unloaded = false;
         public static DialButton PlayPauseDialx;
         public static DoubleAnimation trackAnim;
+        public static LatchSwitch overrideSwitch;
 
         public MainWindow()
         {
             InitializeComponent();
+            overrideSwitch = latchSwitch;
             Title += $" - v{Configs.Version}";
             outputDevice = new WaveOutEvent();
             MiniHud = HUD;

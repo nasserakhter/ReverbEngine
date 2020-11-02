@@ -37,6 +37,7 @@ namespace ReverbEngine
 
         private void AudioDevices_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            MainWindow.overrideSwitch.TurnOff();
             MainWindow.outputDevice.DeviceNumber = AudioDevices.SelectedIndex;
             MainWindow.AudioDevice = AudioDevices.SelectedIndex;
             MainWindow.outputDevice.Stop();

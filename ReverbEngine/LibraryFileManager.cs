@@ -68,6 +68,7 @@ namespace ReverbEngine
             {
                 LibraryFile import = Newtonsoft.Json.JsonConvert.DeserializeObject<LibraryFile>(json);
                 MainWindow.outputDevice.DeviceNumber = import.outputDevice;
+                MainWindow.AudioDevice = import.outputDevice;
                 foreach (var s in import.sounds)
                 {
                     if (File.Exists(s.FilePath))

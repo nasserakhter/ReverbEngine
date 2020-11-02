@@ -85,6 +85,9 @@
     <Compile Include="Controls\DialButton.xaml.cs">
       <DependentUpon>DialButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LatchSwitch.xaml.cs">
+      <DependentUpon>LatchSwitch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MiniHud.xaml.cs">
       <DependentUpon>MiniHud.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DialButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LatchSwitch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

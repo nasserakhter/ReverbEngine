@@ -54,6 +54,16 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
+            <TextBlock x:Name="IsLive" Text="NOT LIVE" VerticalAlignment="Top" Foreground="#FFFF0051" RenderTransformOrigin="0.5,0.5" TextTrimming="CharacterEllipsis" DockPanel.Dock="Top" FontWeight="Bold" Visibility="Hidden">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
             <Grid Margin="0" Height="15" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
                 <ProgressBar x:Name="TrackProgressView" BorderBrush="#FFCCF6FF" Background="{x:Null}" Foreground="#FFCCF6FF" Value="{Binding Value, ElementName=TrackProgress}" Maximum="{Binding Maximum, ElementName=TrackProgress}"/>
                 <Slider x:Name="TrackProgress" IsMoveToPointEnabled="True" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Opacity="0.001" ValueChanged="TrackPositionSlider_ValueChanged" Maximum="100" Value="100"/>

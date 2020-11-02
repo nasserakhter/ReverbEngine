@@ -17,6 +17,16 @@
         </ScrollViewer>
         <Grid Margin="0" FocusVisualStyle="{x:Null}">
             <StackPanel Margin="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Controls:LatchSwitch Margin="0,0,25,0" Width="650" HorizontalAlignment="Center" VerticalAlignment="Center" Height="620" Visibility="Hidden">
+                    <Controls:LatchSwitch.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.13" ScaleY="0.13"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Controls:LatchSwitch.LayoutTransform>
+                </Controls:LatchSwitch>
                 <Controls:DialButton HorizontalAlignment="Center" Height="755" VerticalAlignment="Center" Width="690" MouseUp="DialButton_MouseUp">
                     <Controls:DialButton.LayoutTransform>
                         <TransformGroup>
@@ -38,6 +48,16 @@
                         </TransformGroup>
                     </Controls:DialButton.LayoutTransform>
                 </Controls:DialButton>
+                <Controls:LatchSwitch x:Name="latchSwitch" Margin="25,0,0,0" Width="650" HorizontalAlignment="Center" VerticalAlignment="Center" Height="620" Opacity="0.9">
+                    <Controls:LatchSwitch.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.13" ScaleY="0.13"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Controls:LatchSwitch.LayoutTransform>
+                </Controls:LatchSwitch>
             </StackPanel>
         </Grid>
     </Grid>
