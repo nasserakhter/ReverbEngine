@@ -165,6 +165,7 @@ namespace ReverbEngine
 
         private void DialButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            currentlyPlayingAudioFile.Position = 0;
             outputDevice.Stop();
             HUD.TrackStatus.Text = "Status: Stopped";
             HUD.TrackProgress.BeginAnimation(ProgressBar.ValueProperty, null);

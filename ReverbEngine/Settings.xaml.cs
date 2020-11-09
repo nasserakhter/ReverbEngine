@@ -40,9 +40,15 @@ namespace ReverbEngine
             MainWindow.overrideSwitch.TurnOff();
             MainWindow.outputDevice.DeviceNumber = AudioDevices.SelectedIndex;
             MainWindow.AudioDevice = AudioDevices.SelectedIndex;
-            MainWindow.outputDevice.Stop();
-            MainWindow.outputDevice.Init(MainWindow.currentlyPlayingAudioFile);
-            MainWindow.outputDevice.Play();
+            if (MainWindow.currentlyPlayingAudioFile != null)
+            {
+                try
+                {
+                    MainWindow.outputDevice.Stop();
+                    MainWindow.outputDevice.Init(MainWindow.currentlyPlayingAudioFile);
+                    MainWindow.outputDevice.Play();
+                } catch (Exception) { }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
